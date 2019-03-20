@@ -73,7 +73,13 @@
                 }
                 $('html').removeAttr('notybar', '');
             }
-           
+            //close when ESC key is pressed
+            $(document).keydown(function (e) {
+                var key = e.which;
+                if (key == 27) {
+                     closeNotyBar();
+                } 
+            });
 
             this.element.on("notybar_opening", {
                 message: "NotyBar Opening..."
