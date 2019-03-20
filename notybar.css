@@ -13,6 +13,12 @@ html[notybar] main[notybar="main"] {
 	filter: blur(15px);
 }
 
+aside{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 20px;
+}
 aside[data-notybar-target] {
 	z-index: 1000;
 	position: fixed;
@@ -89,14 +95,15 @@ aside[notybar="active"] {
 }
 
 .close {
-	width: 10px;
-	height: 10px;
-	position: relative;
-  background: #000;
-	padding: 14px;
-	margin: 10px;
-	text-align: center;
-	cursor: pointer;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    background: #000;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    right: 0;
+    top: 0;
 }
 .close:before,
 .close:after {
