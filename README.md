@@ -1,5 +1,20 @@
 # NotyBar
 
+### Installation  
+1.  Add the notybar.css file to the head of your html.
+2.  Add the notybar.jquery.js file before closing body tag.
+3.  Add this code after the notybar.jquery.js script tag to initialize the plugin.
+
+    	var  op = {
+       		blur:  true,
+        	logs:  true,
+          overlay:  false
+        };
+        var  notyBar = new  $.NotyBar($(".mycta"), op);
+        notyBar.InitEvents();
+
+
+
 
 
 ## Demo Screenshots
