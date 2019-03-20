@@ -1,0 +1,124 @@
+// Color variables (appears count calculates by raw css)
+@color0: #ffffff; // Appears 3 times
+
+// Width variables (appears count calculates by raw css)
+@width0: 256px; // Appears 2 times
+@width1: 100%; // Appears 8 times
+@width3: 2px; // Appears 2 times
+
+// Height variables (appears count calculates by raw css)
+@height0: 150px; // Appears 2 times
+@height1: 100vh; // Appears 3 times
+@height2: 100%; // Appears 3 times
+@height4: 20px; // Appears 2 times
+
+.notybar.visible {
+	display: block;
+}
+html[notybar] {
+	-ms-touch-action: none;
+	overflow: hidden;
+	touch-action: none;
+}
+html[notybar]main[notybar="main"] {
+	filter: blur(15px);
+}
+aside[data-notybar-target] {
+	background: @color0;
+	overflow-y: auto;
+	position: fixed;
+	transition: transform 0.5s ease;
+	will-change: transform;
+	will-change: transform;
+	z-index: 1000;
+}
+div[notybar="overlay"] {
+	background: #3c3442;
+	height: @height2;
+	left: 0;
+	max-width: @width1;
+	min-height: @height1;
+	opacity: 0;
+	position: fixed;
+	top: 0;
+	transition: opacity 0.5s ease;
+	width: @width1;
+	will-change: opacity;
+	will-change: opacity;
+	z-index: -999;
+}
+html[notybar]div[notybar="overlay"] {
+	opacity: 0.8;
+	transition: opacity 0.5s ease;
+	z-index: 999;
+}
+aside[data-notybar-position="left"] {
+	height: @height2;
+	left: 0;
+	max-width: @width1;
+	min-height: @height1;
+	top: 0;
+	transform: translateZ(0) translateX(-100%);
+	width: @width0;
+}
+aside[data-notybar-position="right"] {
+	height: @height2;
+	max-width: @width1;
+	min-height: @height1;
+	right: 0;
+	top: 0;
+	transform: translateZ(0) translateX(100%);
+	width: @width0;
+}
+aside[data-notybar-position="top"] {
+	left: 0;
+	max-width: @width1;
+	min-height: @height0;
+	top: 0;
+	transform: translateZ(0) translateY(-100%);
+	width: @width1;
+}
+aside[data-notybar-position="bottom"] {
+	bottom: 0;
+	left: 0;
+	max-width: @width1;
+	min-height: @height0;
+	transform: translateZ(0) translateY(100%);
+	width: @width1;
+}
+aside[notybar="active"] {
+	transform: translateX(0px) translateY(0px);
+}
+.close {
+	background: #000000;
+	cursor: pointer;
+	height: 10px;
+	margin: 10px;
+	padding: 14px;
+	position: relative;
+	text-align: center;
+	width: 10px;
+	&:before {
+		background-color: @color0;
+		content: "";
+		height: @height4;
+		left: 49%;
+		position: absolute;
+		top: 26%;
+		transform: rotate(45deg);
+		width: @width3;
+	}
+	&:after {
+		background-color: @color0;
+		content: "";
+		height: @height4;
+		left: 49%;
+		position: absolute;
+		top: 26%;
+		transform: rotate(-45deg);
+		width: @width3;
+	}
+	&:hover {
+		opacity: 0.6;
+	}
+}
