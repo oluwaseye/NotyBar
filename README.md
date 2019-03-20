@@ -1,5 +1,10 @@
 # NotyBar
 
+
+
+## Demo Screenshots
+![enter image description here](https://github.com/oluwaseye/NotyBar/blob/master/screenshot.JPG?raw=true)
+
 # Contribute
 If you think you know something i dont, please tell me i'd appreciate any help/feed back.
 
