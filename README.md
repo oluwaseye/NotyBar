@@ -7,9 +7,8 @@
 3.  Add this code after the notybar.jquery.js script tag to initialize the plugin.
 
     	var op = {
-       	    blur:  true,
-            logs:  true,
-            overlay:  false
+            logs:  true, // true|false  - Display event logs in browser console (for dev purposes)
+            overlay:  false //true|false - Dispaly Overlay or not
         };
         var  notyBar = new  $.NotyBar($(".mycta"), op);
         notyBar.InitEvents();
