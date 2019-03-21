@@ -8,11 +8,6 @@ html[notybar] {
 	touch-action: none;
 }
 
-
-html[notybar] main[notybar="main"] {
-	filter: blur(15px);
-}
-
 aside{
 	display: flex;
 	flex-direction: row;
@@ -50,7 +45,9 @@ html[notybar] div[notybar="overlay"] {
 	z-index: 999;
 	transition: opacity 0.5s ease;
 }
-
+html[notybar] div[notybar="overlay"][data-notify-overlay="false"] {
+	display: none;
+}
 
 aside[data-notybar-position="left"] {
 	top: 0;
