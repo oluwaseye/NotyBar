@@ -11,15 +11,6 @@
         $('body').addClass("NotyBar");
 
         $(
-            '<main></main>'
-            , {
-                class: 'main-block',
-                notybar: 'main',
-                appendTo: 'body'
-            }
-        );
-
-        $(
             '<div></div>', {
               class: 'notybar_overlay',
               notybar: 'overlay',
@@ -51,7 +42,6 @@
 
             var pos = this.getPosition();
             var logs = this.getLog();
-            var blur = this.getBlur();
             var overlay = this.getOverlay();
             
             //Function to close NotyBar
@@ -60,16 +50,10 @@
                 //Look for the target
                 $(document).find('[notybar="active"]').removeAttr("notybar", "active");
 
-                if (blur === true) {
-                    $('html[notybar] main[notybar="main"]').removeAttr('data-notify-blur', 'true');
-                } else {
-                    $('html[notybar] main[notybar="main"]').removeAttr('data-notify-blur', 'false');
-                }
-
                 if (overlay === true) {
-                    $('html[notybar] main[notybar="main"]').removeAttr('data-notify-overlay', 'true');
+                    $('html[notybar] div[notybar="overlay"]').removeAttr('data-notify-overlay');
                 } else {
-                    $('html[notybar] main[notybar="main"]').removeAttr('data-notify-overlay', 'false');
+                    $('html[notybar] div[notybar="overlay"]').removeAttr('data-notify-overlay');
                 }
                 $('html').removeAttr('notybar', '');
             }
@@ -87,23 +71,15 @@
                 if (typeof msg === "boolean" && msg === true) {
                     console.log(event.data.message);
                 }
-                
+                closeNotyBar();
                 $('html').attr('notybar', '');
                 //Look for the target
                 $('[data-notybar-target="' + $(this).attr("notybar-cta") + '"]').attr("notybar", "active");
 
-               // $(document).find('aside[data-notybar-position="'+pos+'"]')
-                
-                if(blur === true){
-                    $('html[notybar] main[notybar="main"]').attr('data-notify-blur', 'true');
+               if(overlay === true){
+                   $('html[notybar] div[notybar="overlay"]').attr('data-notify-overlay', 'true');
                 }else{
-                    $('html[notybar] main[notybar="main"]').attr('data-notify-blur', 'false');
-                }
-
-                if(overlay === true){
-                    $('html[notybar] main[notybar="main"]').attr('data-notify-overlay', 'true');
-                }else{
-                    $('html[notybar] main[notybar="main"]').attr('data-notify-overlay', 'false');
+                   $('html[notybar] div[notybar="overlay"]').attr('data-notify-overlay', 'false');
                 }
             });
 
@@ -141,9 +117,6 @@
         getPosition: function () {
             return ($.NotyBar.positions.indexOf(this.options.position) >= 0) ? this.options.position : $.NotyBar.defaultOptions.position;
         },
-        getBlur: function () {
-            return (typeof this.options.blur === "boolean" && this.options.blur !== undefined) ? this.options.blur : $.NotyBar.defaultOptions.blur;
-        },
         getOverlay: function () {
             return (typeof this.options.overlay === "boolean") ? this.options.overlay : $.NotyBar.defaultOptions.overlay;
         },
@@ -160,7 +133,6 @@
 
     $.NotyBar.defaultOptions = {
         position: 'left',
-        blur: false,
         overlay: true,
         logs: false
     };
